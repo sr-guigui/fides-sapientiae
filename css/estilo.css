@@ -1,0 +1,53 @@
+/*========================================= LOGO =========================================*/
+/* Alinha a imagem e o texto lado a lado */
+.logo-container {
+    display: flex;
+    align-items: center;
+    /* Alinha verticalmente ao centro */
+    gap: 15px;
+    /* Espaço entre a imagem e o texto */
+}
+
+/* Deixa a imagem redonda e ajusta o tamanho */
+.logo {
+    width: 80px;
+    /* Ajuste a largura conforme preferir */
+    height: 80px;
+    /* Mantém a proporção quadrada para o círculo perfeito */
+    border-radius: 50%;
+    /* Arredonda as bordas formando um círculo */
+    object-fit: cover;
+    /* Corta o excesso de bordas mantendo a imagem centralizada */
+}
+
+/* Remove margens do h1 para um alinhamento alinhado */
+.logo-container h1 {
+    margin: 0;
+}
+/*==================================================== MENU NAVEGAÇÃO ========================================= */
+/* Remove margens e marcadores da lista do menu */
+nav ul {
+    list-style-type: none;
+    /* Remove as bolinhas pretas da lista */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    /* Coloca os itens lado a lado na horizontal */
+    gap: 20px;
+    /* Espaçamento entre cada item do menu */
+    align-items: center;
+}
+
+/* Estilização básica dos links do menu */
+nav a {
+    text-decoration: none;
+    /* Remove o sublinhado azul padrão */
+    color: #333;
+    /* Cor do texto (ajuste se preferir) */
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #8b0000;
+    /* Cor ao passar o rato por cima */
+}

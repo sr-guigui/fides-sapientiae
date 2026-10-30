@@ -4,13 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="estilo.css">
+  <!-- 1. Caminho direto para o CSS -->
+  <link rel="stylesheet" href="css/estilo.css">
   <title>Fides Sapientiae - Início</title>
 </head>
 
 <body>
   <header>
-    <h1>FIDES SAPIENTIAE</h1>
+    <div class="logo-container">
+      <a href="index.html">
+        <!-- 2. Caminho direto para a imagem + class="logo" para aplicar o círculo -->
+        <img src="imagens/logo.svg" alt="Logotipo Fides Sapientiae" class="logo">
+      </a>
+      <h1>FIDES SAPIENTIAE</h1>
+    </div>
   </header>
   <hr>
 
@@ -18,6 +25,7 @@
     <ul>
       <li><a href="index.html">Início</a></li>
       <li><a href="quem-somos.html">Quem Somos</a></li>
+      <li><a href="servicos.html">Cursos / Materiais</a></li>
       <li><a href="duvidas.html">Tire suas Dúvidas</a></li>
       <li><a href="cadastro.html">Cadastro / Colabore</a></li>
       <li><a href="login.html">Login</a></li>
@@ -29,7 +37,7 @@
   <main>
     <section id="introducao">
       <h2>Você sabe defender a sua Fé?</h2>
-      <img src="capa.jpg" alt="Imagem dos santos doutores iluminados pelo espirito santo" width="600">
+      <img src="imagens/capa.jpg" alt="Imagem dos santos doutores iluminados pelo espirito santo" width="600">
 
       <p>Você já se viu em uma conversa onde questionaram sua fé e você não soube o que responder? Ou talvez tenha tido
         dúvidas sinceras sobre os ensinamentos da Igreja, mas não sabia onde encontrar fontes seguras e compreensíveis?
@@ -42,12 +50,20 @@
       <p>O <strong>Fides Sapientiae</strong> existe para preencher essa lacuna. Aqui, traduzimos a riqueza do
         Magistério, da Tradição e das Sagradas Escrituras em respostas diretas e fundamentadas. Nosso objetivo é equipar
         você com o conhecimento necessário para viver e defender a fé católica no seu dia a dia.</p>
+  <br>
+        <h3>Nossos Diferenciais:</h3>
+        <ul>
+          <li>Conteúdo 100% embasado no Magistério da Igreja e Catecismo</li>
+          <li>Respostas claras para dúvidas teológicas complexas</li>
+          <li>Acesso gratuito a artigos, documentos e materiais de estudo</li>
+          <li>Comunidade ativa de estudantes, pesquisadores e leigos</li>
+        </ul>
     </section>
   </main>
 
   <footer>
     <hr>
-    <p>&copy; 2026 Fides Sapientiae.</p>
+    <p>&copy; 2026 Fides Sapientiae. Todos os direitos reservados. @fides-sapientiae</p>
   </footer>
 </body>
 
