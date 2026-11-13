@@ -1,0 +1,367 @@
+/* ==========================================================================
+   FIDES SAPIENTIAE — Design System
+   Vinho profundo · Dourado clássico · Marfim pergaminho · Ouro envelhecido
+   Ruritania (títulos) · Cinzel (seções) · UnifrakturCook (ornamental)
+   Cormorant Garamond (corpo) · Inter (funcional)
+   ========================================================================== */
+
+/* ---------- FONTES ---------- */
+@font-face { font-family: "Ruritania"; src: url("../assets/fonts/Ruritania.ttf") format("truetype"); font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("../assets/fonts/Cinzel-Regular.otf") format("opentype"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Cinzel"; src: url("../assets/fonts/Cinzel-Bold.otf") format("opentype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "UnifrakturCook"; src: url("../assets/fonts/UnifrakturCook-Bold.ttf") format("truetype"); font-weight: 700; font-display: swap; }
+
+/* ---------- VARIÁVEIS ---------- */
+:root {
+  --vinho: #500716;
+  --vinho-escuro: #3a0510;
+  --dourado: #D0A162;
+  --marfim: #F5EDCA;
+  --ouro-velho: #AE8648;
+  --texto: #2b1a14;
+
+  --fonte-titulo: "Ruritania", "Cinzel", serif;
+  --fonte-secao: "Cinzel", "Times New Roman", serif;
+  --fonte-ornamental: "UnifrakturCook", "Cinzel", serif;
+  --fonte-corpo: "Cormorant Garamond", Georgia, serif;
+  --fonte-ui: "Inter", system-ui, sans-serif;
+
+  --largura: 1080px;
+  --raio: 4px;
+}
+
+/* ---------- BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--marfim) url("../assets/fundos/papel-claro-tile-1024.webp") repeat;
+  background-size: 1024px;
+  background-blend-mode: multiply;
+  color: var(--texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1.25rem;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--vinho); text-underline-offset: 3px; }
+a:hover { color: var(--ouro-velho); }
+:focus-visible { outline: 3px solid var(--dourado); outline-offset: 2px; }
+::selection { background: var(--vinho); color: var(--marfim); }
+
+.pular-conteudo {
+  position: absolute; left: -999px; top: 0; z-index: 100;
+  background: var(--marfim); color: var(--vinho); padding: .6rem 1rem; font-family: var(--fonte-ui);
+}
+.pular-conteudo:focus { left: 8px; top: 8px; }
+
+/* ---------- TIPOGRAFIA ---------- */
+h1, h2, h3 { margin: 0; font-weight: 400; }
+.titulo-principal {
+  font-family: var(--fonte-titulo);
+  color: var(--vinho);
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+.subtitulo {
+  font-family: var(--fonte-secao);
+  font-weight: 700;
+  color: var(--vinho);
+  font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin: 2rem 0 .8rem;
+}
+.ornamental {
+  font-family: var(--fonte-ornamental);
+  color: var(--ouro-velho);
+  font-size: 1.6rem;
+  margin: 0 0 .4rem;
+}
+.centralizado { text-align: center; }
+.nota { font-family: var(--fonte-ui); font-size: .9rem; }
+
+/* ---------- CABEÇALHO ---------- */
+.cabecalho {
+  background: var(--vinho) url("../assets/fundos/damasco-carmesim-tile-1024.webp") repeat;
+  background-size: 620px;
+  background-blend-mode: multiply;
+  border-bottom: 3px solid var(--dourado);
+  color: var(--marfim);
+}
+.cabecalho__interno { max-width: var(--largura); margin: 0 auto; padding: 1.1rem 1.25rem; }
+
+.logo-container { display: flex; align-items: center; gap: 1.1rem; text-decoration: none; color: inherit; }
+.logo {
+  width: 96px; height: 96px; flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--dourado);
+  background: var(--marfim);
+  box-shadow: 0 0 0 3px var(--vinho), 0 0 0 4px var(--ouro-velho);
+}
+.marca {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.5rem, 4.4vw, 2.5rem);
+  color: var(--marfim);
+  letter-spacing: .04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.lema {
+  margin: .3rem 0 0;
+  font-family: var(--fonte-ornamental);
+  color: var(--dourado);
+  font-size: clamp(.95rem, 2.2vw, 1.3rem);
+}
+
+/* ---------- MENU ---------- */
+.menu {
+  background: var(--vinho);
+  border-bottom: 1px solid var(--ouro-velho);
+  position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 4px 12px rgba(58, 5, 16, .35);
+}
+.menu__interno { max-width: 1280px; margin: 0 auto; padding: 0 1.25rem; }
+.menu ul {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .25rem 1.1rem;
+}
+.menu a {
+  display: block;
+  padding: .95rem .2rem;
+  font-family: var(--fonte-secao);
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--marfim);
+  border-bottom: 3px solid transparent;
+  transition: color .2s, border-color .2s;
+}
+.menu a:hover { color: var(--dourado); }
+.menu a.ativo { color: var(--dourado); border-bottom-color: var(--dourado); }
+
+.menu__toggle {
+  display: none;
+  width: 100%; padding: .85rem 0;
+  background: none; border: 0; cursor: pointer;
+  font-family: var(--fonte-secao); font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--marfim); font-size: 1rem; text-align: left;
+}
+.menu__toggle-barras {
+  display: inline-block; width: 22px; height: 2px; background: var(--dourado);
+  vertical-align: middle; margin-right: .6rem; position: relative;
+}
+.menu__toggle-barras::before, .menu__toggle-barras::after {
+  content: ""; position: absolute; left: 0; width: 100%; height: 2px; background: var(--dourado);
+}
+.menu__toggle-barras::before { top: -7px; }
+.menu__toggle-barras::after { top: 7px; }
+
+/* ---------- PÁGINAS (conteúdo unificado) ---------- */
+.js .pagina { display: none; }
+.js .pagina.ativa { display: block; animation: surgir .45s ease both; }
+@keyframes surgir { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.hero { text-align: center; padding: 3.2rem 1.25rem 1rem; }
+.hero--compacto { padding-top: 2.4rem; }
+.container { max-width: var(--largura); margin: 0 auto; padding: 1rem 1.25rem 4rem; }
+.container--estreito { max-width: 720px; }
+.texto-leitura { max-width: 720px; margin: 1.5rem auto; }
+.texto-leitura p { margin: 0 0 1.2rem; text-align: justify; hyphens: auto; }
+.capitular > p:first-child::first-letter {
+  font-family: var(--fonte-ornamental);
+  float: left; font-size: 4.6rem; line-height: .8;
+  padding: .25rem .6rem 0 0; color: var(--vinho);
+}
+
+/* ---------- DIVISOR ORNAMENTAL ---------- */
+.divisor {
+  height: 22px; max-width: 520px; margin: 1.5rem auto;
+  background: url("../assets/svg/divisor-losango.svg") center / 100% 100% no-repeat;
+  /* SVG usa var(--ornament), mas como imagem exibe o ouro padrão; tom ajustado por filtro */
+  filter: sepia(.5) saturate(.9) brightness(.82);
+}
+.divisor--claro { filter: none; opacity: .9; }
+
+/* ---------- MOLDURA DE IMAGEM ---------- */
+.moldura-imagem {
+  margin: 2rem auto; max-width: 735px;
+  border: 2px solid var(--ouro-velho);
+  padding: 8px;
+  background: var(--marfim);
+  box-shadow: 0 0 0 5px var(--vinho), 0 10px 24px rgba(58, 5, 16, .3);
+}
+.moldura-imagem img { width: 100%; }
+.moldura-imagem--pequena { max-width: 420px; margin: 1.2rem auto; box-shadow: 0 0 0 4px var(--vinho); }
+
+/* ---------- DIFERENCIAIS ---------- */
+.diferenciais {
+  list-style: none; margin: 1.5rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem;
+}
+.diferenciais li {
+  position: relative;
+  background: rgba(245, 237, 202, .7);
+  border: 1px solid var(--ouro-velho);
+  border-top: 4px solid var(--vinho);
+  padding: 1.5rem 1.2rem 1.2rem;
+  text-align: center;
+  font-weight: 500;
+}
+.diferenciais li::before {
+  content: "✠"; display: block; color: var(--ouro-velho); font-size: 1.6rem; margin-bottom: .4rem;
+}
+
+/* ---------- BOTÕES ---------- */
+.btn {
+  display: inline-block; cursor: pointer;
+  background: var(--vinho); color: var(--marfim);
+  border: 2px solid var(--vinho);
+  border-radius: var(--raio);
+  padding: .7rem 1.5rem;
+  font-family: var(--fonte-secao); font-weight: 700; font-size: .9rem;
+  letter-spacing: .08em; text-transform: uppercase; text-decoration: none;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn:hover { background: var(--vinho-escuro); border-color: var(--dourado); color: var(--dourado); }
+.btn--secundario { background: var(--dourado); color: var(--vinho); border-color: var(--ouro-velho); }
+.btn--secundario:hover { background: var(--vinho); color: var(--marfim); border-color: var(--vinho); }
+.btn:disabled { opacity: .6; cursor: wait; }
+
+/* ---------- TABELA ---------- */
+.tabela-rolagem { margin-top: 2rem; overflow-x: auto; border: 1px solid var(--ouro-velho); background: rgba(245, 237, 202, .85); }
+table { width: 100%; border-collapse: collapse; font-size: 1.1rem; }
+thead th {
+  background: var(--vinho); color: var(--marfim);
+  font-family: var(--fonte-secao); font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  font-size: .85rem; text-align: left; padding: 1rem;
+  border-bottom: 3px solid var(--dourado);
+}
+tbody td { padding: .9rem 1rem; border-bottom: 1px solid var(--ouro-velho); }
+tbody tr:nth-child(even) { background: rgba(208, 161, 98, .12); }
+tbody tr:hover { background: rgba(208, 161, 98, .25); }
+tbody td:first-child { font-family: var(--fonte-ui); font-size: .9rem; font-weight: 600; color: var(--vinho); white-space: nowrap; }
+tfoot td { padding: .9rem 1rem; font-style: italic; text-align: center; color: var(--vinho); }
+
+/* ---------- BUSCA E DÚVIDAS ---------- */
+.busca { max-width: 640px; margin: 1rem auto; }
+.busca label { display: block; font-family: var(--fonte-secao); font-weight: 700; color: var(--vinho); margin-bottom: .5rem; font-size: .95rem; letter-spacing: .05em; }
+.busca__campo { display: flex; gap: .6rem; }
+.busca__status { min-height: 1.5em; margin: .6rem 0 0; font-family: var(--fonte-ui); font-size: .9rem; text-align: center; }
+
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="search"],
+input[type="file"], select, textarea {
+  width: 100%;
+  background: #fffaf0;
+  border: 1.5px solid var(--ouro-velho);
+  border-radius: var(--raio);
+  padding: .7rem .9rem;
+  font-family: var(--fonte-ui); font-size: 1rem; color: var(--texto);
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--vinho); box-shadow: 0 0 0 3px rgba(208, 161, 98, .55); }
+
+.duvidas-lista { margin-top: 1.5rem; display: grid; gap: 1rem; }
+details {
+  background: rgba(245, 237, 202, .85);
+  border: 1px solid var(--ouro-velho);
+  border-left: 5px solid var(--vinho);
+}
+summary {
+  cursor: pointer; list-style: none;
+  padding: 1.1rem 3rem 1.1rem 1.3rem;
+  font-family: var(--fonte-secao); font-weight: 700; color: var(--vinho);
+  font-size: 1.1rem; letter-spacing: .03em; position: relative;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+  content: "✠"; position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%);
+  color: var(--ouro-velho); transition: transform .3s;
+}
+details[open] summary::after { transform: translateY(-50%) rotate(135deg); }
+details[open] summary { border-bottom: 1px solid var(--ouro-velho); }
+.duvida__corpo { padding: 1rem 1.3rem 1.3rem; }
+.referencia { font-size: 1.05rem; color: var(--vinho); border-top: 1px dashed var(--ouro-velho); padding-top: .8rem; }
+.aviso-vazio { text-align: center; font-style: italic; margin-top: 1.5rem; }
+.destaque-busca { background: var(--dourado); color: var(--vinho-escuro); padding: 0 2px; }
+
+/* ---------- FORMULÁRIOS ---------- */
+.cartao {
+  background: rgba(245, 237, 202, .92);
+  border: 1px solid var(--ouro-velho);
+  box-shadow: 0 0 0 4px var(--marfim), 0 0 0 5px var(--ouro-velho), 0 12px 28px rgba(58, 5, 16, .2);
+  padding: 2rem clamp(1.2rem, 4vw, 2.5rem) 2.2rem;
+  margin-top: 1.2rem;
+}
+.cartao .subtitulo { margin-top: 0; text-align: center; }
+.formulario p { margin: 0 0 1.2rem; }
+.formulario label { font-family: var(--fonte-secao); font-weight: 700; font-size: .9rem; letter-spacing: .04em; color: var(--vinho); display: block; margin-bottom: .35rem; }
+fieldset { border: 1px solid var(--ouro-velho); padding: .8rem 1.1rem 1rem; margin: 0 0 1.2rem; }
+legend { font-family: var(--fonte-secao); font-weight: 700; color: var(--vinho); font-size: .9rem; letter-spacing: .05em; padding: 0 .5rem; }
+.formulario label.opcao { display: flex; align-items: center; gap: .6rem; font-family: var(--fonte-corpo); font-weight: 500; font-size: 1.15rem; letter-spacing: 0; margin: .3rem 0; color: var(--texto); cursor: pointer; }
+.opcao input { width: 1.15rem; height: 1.15rem; accent-color: var(--vinho); flex: none; }
+.acoes { display: flex; flex-wrap: wrap; gap: .8rem; }
+.form-status { min-height: 1.4em; font-family: var(--fonte-ui); font-size: .92rem; margin-bottom: 0 !important; }
+.form-status.ok { color: #1f5a2b; }
+.form-status.erro { color: #8a1020; }
+
+/* ---------- RODAPÉ ---------- */
+.rodape {
+  background: var(--vinho); color: var(--marfim);
+  border-top: 3px solid var(--dourado);
+  text-align: center; padding: 1.2rem 1.25rem 1.8rem;
+  font-family: var(--fonte-secao); font-size: .85rem; letter-spacing: .05em;
+}
+.rodape p { margin: 0; }
+.rodape .divisor { margin-top: 0; }
+
+/* ---------- VOLTAR AO TOPO ---------- */
+#voltar-topo {
+  position: fixed; right: 24px; bottom: 24px; z-index: 60;
+  width: 50px; height: 50px; border-radius: var(--raio);
+  background: var(--vinho); border: 2px solid var(--dourado); cursor: pointer;
+  opacity: 0; visibility: hidden;
+  transition: opacity .4s, visibility .4s, background .3s;
+}
+#voltar-topo.show { opacity: 1; visibility: visible; }
+#voltar-topo:hover { background: var(--vinho-escuro); }
+#voltar-topo span {
+  display: block; width: 14px; height: 14px; margin: 18px auto 0;
+  border-left: 3px solid var(--dourado); border-top: 3px solid var(--dourado);
+  transform: rotate(45deg);
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 820px) {
+  .menu__toggle { display: block; }
+  .js .menu ul { display: none; flex-direction: column; align-items: stretch; padding-bottom: .6rem; }
+  .js .menu.aberto ul { display: flex; }
+  .menu a { padding: .75rem 0; border-bottom: 1px solid rgba(208, 161, 98, .25); }
+  .menu a.ativo { border-bottom-color: var(--dourado); }
+}
+@media (max-width: 640px) {
+  body { font-size: 1.15rem; }
+  .logo { width: 68px; height: 68px; }
+  .busca__campo { flex-direction: column; }
+  .texto-leitura p { text-align: left; }
+
+  /* tabela vira lista de cartões */
+  .tabela-rolagem { border: 0; background: none; }
+  table, thead, tbody, tfoot, tr, td { display: block; }
+  thead { position: absolute; left: -9999px; }
+  tbody tr { background: rgba(245, 237, 202, .9); border: 1px solid var(--ouro-velho); border-left: 5px solid var(--vinho); margin-bottom: 1rem; }
+  tbody td { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dashed var(--ouro-velho); }
+  tbody td::before { content: attr(data-rotulo); font-family: var(--fonte-secao); font-weight: 700; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--vinho); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
