@@ -1,0 +1,111 @@
+/* ================================================================
+   Pacote Medieval — receitas CSS prontas
+   Troque as variáveis abaixo pelas cores da SUA paleta.
+   Todos os SVGs do pacote leem --ornament / --ornament-dark /
+   --ornament-line quando colados inline no HTML.
+   ================================================================ */
+:root {
+  --ornament: #E3B04B;        /* dourado dos ornamentos */
+  --ornament-dark: #1B2542;   /* pontos/detalhes escuros */
+  --ornament-line: #F2E9D8;   /* contornos claros */
+  --assets: "./";             /* caminho até a pasta do pacote */
+}
+
+/* ---------- FUNDOS ---------- */
+.bg-pergaminho { background: #E9DFC8 url("01-fundos/papel-claro-tile-1024.webp") repeat; background-size: 1024px; }
+.bg-pergaminho-antigo { background: url("01-fundos/pergaminho-envelhecido-1920.webp") center / cover no-repeat; }
+.bg-damasco-azul { background: #0F1A33 url("01-fundos/damasco-azul-tile-1024.webp") repeat; background-size: 520px; }
+.bg-damasco-carmesim { background: #6E0B0B url("01-fundos/damasco-carmesim-tile-1024.webp") repeat; background-size: 620px; }
+.bg-grunge { background: #0E1526 url("01-fundos/grunge-escuro-1920.webp") center / cover no-repeat; }
+
+/* Fundo com SUA cor + padrão por cima (recolorível) */
+.bg-damasco-sua-cor {
+  background-color: var(--sua-cor, #23324F);
+  background-image: url("02-texturas-overlay/damasco-flor-de-lis-overlay-branco.png");
+  background-size: 520px;
+  background-blend-mode: soft-light; /* experimente: overlay, multiply */
+}
+
+/* Granulado por cima de qualquer seção */
+.granulado { position: relative; isolation: isolate; }
+.granulado::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: -1;
+  background: url("02-texturas-overlay/granulado-ruido-512.png"); opacity: .35; mix-blend-mode: overlay;
+}
+
+/* ---------- BORDAS RASGADAS entre seções ----------
+   Use na seção de BAIXO e escolha a imagem pela variável --rasgo.
+   .rasgo-topo  → o papel DESTA seção sobe sobre a seção de cima
+                  (use as imagens "...-topo")
+   .rasgo-base  → o papel da seção DE CIMA desce sobre esta
+                  (use as imagens "...-base")                         */
+.rasgo-topo, .rasgo-base { position: relative; }
+.rasgo-topo::before, .rasgo-base::before {
+  content: ""; position: absolute; left: 0; right: 0; height: 80px; z-index: 1; pointer-events: none;
+  background-repeat: repeat-x; background-position: center; background-size: auto 100%;
+}
+.rasgo-topo::before { top: -79px; background-image: var(--rasgo, url("03-bordas-rasgadas/borda-rasgada-papel-claro-topo.webp")); }
+.rasgo-base::before { top: -1px;  background-image: var(--rasgo, url("03-bordas-rasgadas/borda-rasgada-papel-claro-base.webp")); }
+/* Para trocar: style="--rasgo: url('03-bordas-rasgadas/borda-rasgada-carmesim-base.webp')" */
+
+/* Versão 100% na sua cor (máscara SVG) */
+.rasgo-cor { position: relative; }
+.rasgo-cor::before {
+  content: ""; position: absolute; left: 0; right: 0; top: -40px; height: 42px;
+  background: var(--sua-cor, #0F1A33);
+  -webkit-mask: url("03-bordas-rasgadas/mascara-borda-topo.svg") repeat-x bottom / 100% 100%;
+          mask: url("03-bordas-rasgadas/mascara-borda-topo.svg") repeat-x bottom / 100% 100%;
+}
+
+/* ---------- DIVISOR COM SOL ---------- */
+.divisor-sol {
+  height: 130px; border-bottom: 1px solid var(--ornament);
+  background: url("04-ornamentos/sol-meio-dourado.webp") center bottom / auto 100% no-repeat;
+}
+
+/* ---------- MOLDURA DOURADA com cruzes nos cantos ---------- */
+.moldura {
+  position: relative; border: 6px solid var(--ornament); padding: 0;
+}
+.moldura::before {
+  content: ""; position: absolute; inset: -30px; pointer-events: none;
+  background:
+    url("05-elementos-svg/cruz-canto-moldura.svg") top left / 54px no-repeat,
+    url("05-elementos-svg/cruz-canto-moldura.svg") top right / 54px no-repeat,
+    url("05-elementos-svg/cruz-canto-moldura.svg") bottom left / 54px no-repeat,
+    url("05-elementos-svg/cruz-canto-moldura.svg") bottom right / 54px no-repeat;
+}
+
+/* ---------- BOTÕES ---------- */
+.btn-ingresso {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 18px 52px; color: #14203A; letter-spacing: .04em; font-size: 1.6rem;
+  background: url("04-ornamentos/placa-ingresso-dourada.webp") center / 100% 100% no-repeat;
+}
+.btn-etiqueta {
+  display: inline-flex; padding: 12px 44px; letter-spacing: .25em; color: #14203A;
+  background: url("05-elementos-svg/etiqueta-pontuda.svg") center / 100% 100% no-repeat;
+}
+.btn-contorno {
+  display: inline-flex; padding: 14px 40px; color: #F2E9D8;
+  background: url("05-elementos-svg/botao-contorno-chanfrado.svg") center / 100% 100% no-repeat;
+}
+.faixa-titulo {
+  display: inline-flex; padding: 22px 120px; color: #F2E9D8; letter-spacing: .12em;
+  background: url("04-ornamentos/faixa-turquesa.webp") center / 100% 100% no-repeat;
+}
+
+/* ---------- SELO NUMERADO (estrela) ---------- */
+.selo-estrela {
+  display: inline-grid; place-items: center; width: 44px; height: 44px; font-weight: 700; color: #3A0606;
+  background: url("05-elementos-svg/selo-estrela-6-pontas.svg") center / contain no-repeat;
+}
+
+/* ---------- CANTOS DE HERA ---------- */
+.cantos-hera { position: relative; }
+.cantos-hera::before, .cantos-hera::after {
+  content: ""; position: absolute; width: 90px; height: 90px; pointer-events: none;
+  background-size: contain; background-repeat: no-repeat;
+}
+.cantos-hera::before { top: 8px; left: 8px; background-image: url("04-ornamentos/hera-canto-sup-esq.webp"); }
+.cantos-hera::after { bottom: 8px; right: 8px; background-image: url("04-ornamentos/hera-canto-inf-dir.webp"); }
